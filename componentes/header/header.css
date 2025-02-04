@@ -1,0 +1,19 @@
+.div-header {
+    height: 5rem;
+    padding: 1rem 5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.57);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.57);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.57);
+
+}
+
+.div-header img {
+    height: 5rem;
+    width: 9rem;
+
+}
