@@ -1,0 +1,52 @@
+/* Contenedor principal de tareas */
+.contenedor {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Título del contenedor */
+  .contenedor h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  /* Lista de tareas */
+  .lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Elemento individual de la lista */
+  .Item {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .Item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Checkbox de cada tarea */
+  .task-checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Texto de cada tarea */
+  .task-text {
+    font-size: 16px;
+    flex-grow: 1;
+    color: #555;
+  }
+  
