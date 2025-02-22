@@ -1,12 +1,23 @@
 import { header } from "./componentes/header/header.js";
 import { formulario } from "./componentes/formulario/formulario.js";
-import { tarea } from "./componentes/tareas/tareas.js";
+import { cargarTareas } from './componentes/tareas/tareas.js';
 
-let DOM = document.getElementById("root");
+function cargarDOM() {
+    let DOM = document.getElementById("root");
 
-let html = document.createElement(`div`);
+    let html = document.createElement('div');
+    html.className = "contenedor-prin";
 
-DOM.appendChild(html);
-html.appendChild(header());
-html.appendChild(tarea());
-html.appendChild(formulario());
+    DOM.appendChild(html);
+    html.appendChild(header());
+
+    let contenedorTareas = document.createElement('div');
+    contenedorTareas.id = "tareas-container";
+    html.appendChild(contenedorTareas);
+
+    html.appendChild(formulario());
+
+    cargarTareas();
+}
+
+cargarDOM();
