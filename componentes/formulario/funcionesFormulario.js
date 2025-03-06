@@ -1,4 +1,3 @@
-import { tareas } from "../tareas/data.js";
 import { itemTarea } from "../tareas/itemTareas.js";
 
 export function cargarTareas(input) {

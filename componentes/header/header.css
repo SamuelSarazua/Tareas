@@ -1,6 +1,6 @@
 .div-header {
     height: 5rem;
-    max-width: 420px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

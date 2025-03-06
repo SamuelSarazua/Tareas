@@ -1,6 +1,6 @@
 import { header } from "./componentes/header/header.js";
 import { formulario } from "./componentes/formulario/formulario.js";
-import { cargarTareas } from './componentes/tareas/tareas.js';
+import { consultarTareas } from "./componentes/tareas/tareas.js";
 
 function cargarDOM() {
     let DOM = document.getElementById("root");
@@ -17,6 +17,7 @@ function cargarDOM() {
 
     html.appendChild(formulario());
 
+    consultarTareas();
     cargarTareas();
 }
 
