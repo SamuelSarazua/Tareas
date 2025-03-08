@@ -17,8 +17,7 @@ function cargarDOM() {
 
     html.appendChild(formulario());
 
-    consultarTareas();
-    cargarTareas();
+    consultarTareas(); // 🚀 Cargar tareas al iniciar la app
 }
 
 cargarDOM();
