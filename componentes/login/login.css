@@ -1,0 +1,87 @@
+/* Reseteo de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Asegura que todo esté centrado en la pantalla */
+    flex-direction: column;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;  /* Limita el tamaño del formulario */
+    text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+    color: #4CAF50;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+/* Efecto al hacer focus en los campos */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Estilo para el botón de submit */
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Enlace para el registro */
+.enlace-registro {
+    margin-top: 20px;
+}
+
+.enlace-registro a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.enlace-registro a:hover {
+    text-decoration: underline;
+}

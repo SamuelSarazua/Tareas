@@ -1,30 +1,39 @@
-import { itemTarea } from "./itemTareas.js";
+import { itemTarea } from "./itemTareas.js";  // Importar la función itemTarea
 
-// Función para obtener las tareas desde el backend
+// Obtener el usuario autenticado desde localStorage
+const usuario_id = localStorage.getItem("usuario_id");
+
+// Si no hay usuario en sesión, redirige al login
+if (!usuario_id) {
+    window.location.href = "/componentes/login/login.html";
+}
+
+// Función para obtener las tareas del usuario desde el backend
 export function consultarTareas() {
-    fetch('http://localhost:3000/tareas')  // GET para obtener tareas
+    const usuario_id = localStorage.getItem('usuario_id');  // Obtener el usuario_id desde localStorage
+
+    if (!usuario_id) {
+        alert("Por favor, inicie sesión primero.");
+        return;
+    }
+
+    // Realiza una solicitud GET para obtener las tareas del usuario
+    fetch(`http://localhost:3000/tareas/${usuario_id}`)
         .then(response => response.json())
-        .then(data => {
-            cargarTareasDesdeDB(data);  // Cargar las tareas en el DOM
+        .then(tareas => {
+            const listaTareas = document.getElementById("lista-tareas");
+            listaTareas.innerHTML = "";  // Limpiar tareas previas
+
+            if (tareas.length === 0) {
+                listaTareas.innerHTML = "No tienes tareas aún.";
+                return;
+            }
+
+            // Mostrar las tareas obtenidas usando la función itemTarea
+            tareas.forEach((tarea, index) => {
+                const tareaElement = itemTarea(tarea, index);  // Usar la función itemTarea
+                listaTareas.appendChild(tareaElement);  // Agregar cada tarea al contenedor
+            });
         })
         .catch(error => console.error('Error al obtener tareas:', error));
 }
-
-// Función que crea los elementos y los mete en el HTML
-function cargarTareasDesdeDB(tareas) {
-    const contenedorTareas = document.getElementById("tareas-container");
-    contenedorTareas.innerHTML = '';  // Limpiar lo que ya había
-
-    tareas.forEach((tareaDB, index) => {
-        const tareaFormateada = {
-            nombre: tareaDB.nombre_tarea,
-            estado: tareaDB.estado === 'falso'  // Convertir "falso" a booleano
-        };
-
-        // Crear el elemento visual y añadirlo al contenedor
-        const elementoTarea = itemTarea(tareaFormateada, index);
-        contenedorTareas.appendChild(elementoTarea);
-    });
-}
-
-export { cargarTareasDesdeDB };

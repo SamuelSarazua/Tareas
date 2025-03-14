@@ -18,12 +18,20 @@ export function formulario() {
             return;
         }
 
+        const usuario_id = localStorage.getItem('usuario_id');  // Obtener el usuario_id desde el localStorage
+
+        if (!usuario_id) {
+            alert("Por favor, inicie sesión primero.");
+            return;
+        }
+
         const nuevaTarea = {
-            nombre_tarea: nombre_tarea,
-            estado: "falso"  // Estado inicial
+            nombre: nombre_tarea,  // Asegúrate de que la propiedad se llama "nombre"
+            estado: "falso",  // Estado inicial
+            usuario_id: usuario_id  // Enviar el usuario_id
         };
 
-        fetch('http://localhost:3000/agregar', {
+        fetch('http://localhost:3000/tareas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
